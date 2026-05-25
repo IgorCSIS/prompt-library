@@ -22,7 +22,8 @@ export const metadata: Metadata = {
   alternates: { canonical: '/scraped/' },
   openGraph: {
     title: 'Best AI Prompts from Across the Web, Updated Daily',
-    description: 'A live, source-attributed feed of the best prompts on the internet. MASTER-framework scored.',
+    description:
+      'A live, source-attributed feed of the best prompts on the internet. MASTER-framework scored.',
     url: '/scraped/',
     images: ['/og-image.svg'],
   },
@@ -30,18 +31,25 @@ export const metadata: Metadata = {
 
 export default function ScrapedPage() {
   const isEmpty = scraped.prompts.length === 0;
+  const lastUpdated = scraped.last_updated
+    ? new Date(scraped.last_updated).toLocaleString('en-US', {
+        dateStyle: 'medium',
+        timeStyle: 'short',
+      })
+    : 'pending first run';
 
   return (
     <>
       <section className="container-page pt-16 pb-8">
         <div className="max-w-3xl">
-          <p className="heading-eyebrow mb-5">Part III · Live Feed</p>
+          <p className="heading-eyebrow mb-5">Part III &middot; Live Feed</p>
           <h1 className="heading-display mb-6">Scraped prompts</h1>
           <p className="text-lg text-fg-muted leading-relaxed">
-            A live feed of the best prompts from across the web, source-attributed
-            and scored against the MASTER framework. Updated on a schedule by
-            an upstream scraper. The goal: a single trusted destination for
-            prompts that actually work, not the recycled top-10 lists.
+            A live feed of the best prompts from across the web,
+            source-attributed and scored against the MASTER framework. Updated
+            on a schedule by an upstream scraper. The goal: a single trusted
+            destination for prompts that actually work, not the recycled top-10
+            lists.
           </p>
         </div>
       </section>
@@ -61,65 +69,63 @@ export default function ScrapedPage() {
           <StatCard
             icon={<Clock size={18} />}
             label="Last updated"
-            value={scraped.last_updated ?? 'Not yet run'}
+            value={lastUpdated}
           />
         </div>
       </section>
 
       {isEmpty ? (
         <section className="container-page pb-20">
-          <div className="card-elevated p-10 md:p-16 text-center relative overflow-hidden">
-            <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent to-transparent" />
-            <Rss
-              size={32}
-              className="text-accent mx-auto mb-5 animate-pulse-glow"
-            />
-            <h2 className="text-2xl md:text-3xl font-bold tracking-tight mb-3">
-              The feed is initialising
+          <div className="card-elevated p-10 md:p-16 text-center max-w-2xl mx-auto">
+            <Rss size={32} className="text-accent mx-auto mb-6" />
+            <h2 className="text-2xl font-bold text-fg mb-4">
+              The feed is warming up.
             </h2>
-            <p className="text-fg-muted max-w-xl mx-auto mb-6 leading-relaxed">
-              The scraper runs on a schedule and writes to{' '}
-              <code className="text-accent font-mono text-sm bg-bg-subtle px-1.5 py-0.5 rounded">
+            <p className="text-fg-muted leading-relaxed mb-8">
+              No prompts have landed in the feed yet. The scheduled scraper
+              runs daily and writes new entries to{' '}
+              <code className="font-mono text-xs bg-bg-elevated px-1.5 py-0.5 rounded">
                 data/scraped.json
               </code>
-              . Once it publishes its first run, every prompt will appear here
-              with full source attribution, a MASTER-framework score, and
-              copy-to-clipboard.
+              . Once the first batch lands, this page will populate
+              automatically. In the meantime, browse the curated template
+              library.
             </p>
-
-            <details className="text-left max-w-2xl mx-auto card p-5 mt-8">
-              <summary className="cursor-pointer text-sm font-medium text-fg-muted hover:text-fg">
-                Scraper output schema
-              </summary>
-              <pre className="prose-prompt mt-4 overflow-x-auto">
-                {SCHEMA_EXAMPLE}
-              </pre>
-            </details>
-
-            <div className="mt-8 flex justify-center gap-3">
-              <Link href="/library/" className="btn-primary">
-                Browse the static library in the meantime
-              </Link>
-            </div>
+            <Link href="/library/" className="btn-primary">
+              Open the template library
+            </Link>
           </div>
         </section>
       ) : (
-        <section className="container-page pb-20">
-          <div className="space-y-3">
+        <section className="container-page pb-20 space-y-4">
+          <div className="space-y-4">
             {scraped.prompts.map((p) => (
-              <article key={p.id} className="card p-5">
-                <div className="flex items-start justify-between gap-4 mb-3">
-                  <h3 className="font-semibold text-fg text-base">{p.title}</h3>
-                  <a
-                    href={p.source_url}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex items-center gap-1 text-xs text-fg-muted hover:text-accent font-mono"
-                  >
-                    {p.source_name} <ExternalLink size={11} />
-                  </a>
+              <article key={p.id} id={p.id} className="card p-5 space-y-3">
+                <div className="flex items-start justify-between gap-4 flex-wrap">
+                  <div className="min-w-0">
+                    <h3 className="font-semibold text-fg text-base leading-snug">
+                      {p.title}
+                    </h3>
+                    <p className="text-sm text-fg-muted mt-1">
+                      <span className="text-fg-subtle font-mono text-xs">
+                        SOURCE:{' '}
+                      </span>
+                      <a
+                        href={p.source_url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-accent hover:underline inline-flex items-center gap-1"
+                      >
+                        {p.source_name} <ExternalLink size={12} />
+                      </a>
+                    </p>
+                  </div>
+                  {p.category && (
+                    <span className="chip-muted">{p.category}</span>
+                  )}
                 </div>
-                <pre className="prose-prompt bg-bg-subtle p-4 rounded-md overflow-x-auto mb-3">
+
+                <pre className="prose-prompt p-4 overflow-x-auto rounded-md bg-bg-elevated border border-border-subtle text-sm whitespace-pre-wrap">
                   {p.prompt}
                 </pre>
                 {p.notes && (
@@ -149,30 +155,9 @@ function StatCard({
         {icon}
         <span className="heading-eyebrow">{label}</span>
       </div>
-      <p className="text-2xl font-bold text-fg font-mono">{value}</p>
+      <p className="text-2xl font-bold text-fg font-mono tracking-tight">
+        {value}
+      </p>
     </div>
   );
 }
-
-const SCHEMA_EXAMPLE = `{
-  "schema_version": "1.0",
-  "last_updated": "2026-05-25T18:00:00Z",
-  "sources": [
-    "promptingguide.ai",
-    "github.com/f/awesome-chatgpt-prompts",
-    "anthropic.com/library"
-  ],
-  "prompts": [
-    {
-      "id": "src-001-strategic-decision",
-      "title": "Strategic decision framework for high-stakes choices",
-      "source_url": "https://example.com/path",
-      "source_name": "Source Name",
-      "scraped_at": "2026-05-25T17:55:00Z",
-      "category": "Analysis & Decision Support",
-      "prompt": "## MISSION\\n[the actual prompt text]",
-      "attribution": "@author (if known)",
-      "notes": "Optional editorial note"
-    }
-  ]
-}`;

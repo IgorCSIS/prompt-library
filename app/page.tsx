@@ -15,7 +15,7 @@ const MASTER_LAYERS = [
   { letter: 'A', name: 'Agent', desc: 'The persona and expertise the model adopts.' },
   { letter: 'S', name: 'Situation', desc: 'The context the model needs to be calibrated.' },
   { letter: 'T', name: 'Task', desc: 'Decomposed sub-tasks, numbered, in order.' },
-  { letter: 'E', name: 'Examples', desc: 'Input → output pairs. Showing beats telling.' },
+  { letter: 'E', name: 'Examples', desc: 'Input to output pairs. Showing beats telling.' },
   { letter: 'R', name: 'Rules', desc: 'Explicit constraints. What NOT to do.' },
   { letter: '+', name: 'Think', desc: 'Chain-of-thought reasoning before responding.' },
   { letter: '+', name: 'Eval', desc: 'Self-evaluation criteria before delivering.' },
@@ -25,9 +25,7 @@ const MASTER_LAYERS = [
 export default function HomePage() {
   return (
     <>
-      {/* Hero */}
       <section className="relative overflow-hidden">
-        {/* Background glow */}
         <div className="absolute inset-0 -z-10">
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] rounded-full bg-accent/5 blur-[120px]" />
         </div>
@@ -35,7 +33,7 @@ export default function HomePage() {
         <div className="container-page pt-20 pb-16 md:pt-32 md:pb-24">
           <div className="max-w-3xl">
             <p className="heading-eyebrow mb-6 animate-fade-in">
-              The 9-Layer MASTER Framework · 427 Prompts
+              The 9-Layer MASTER Framework, 427 Prompts
             </p>
             <h1 className="heading-display mb-8 animate-slide-up">
               Prompts engineered to{' '}
@@ -44,7 +42,7 @@ export default function HomePage() {
             </h1>
             <p className="text-lg md:text-xl text-fg-muted leading-relaxed max-w-2xl mb-10 animate-slide-up">
               A career-grade library of {STATS.totalPrompts} prompts built on
-              the MASTER framework, completed exercises, daily-use
+              the MASTER framework, completed prompt engineering exercises, daily-use
               templates I actually run, and a live feed of the best prompts
               scraped from across the web.
             </p>
@@ -60,7 +58,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Stats strip */}
       <section className="border-y border-border bg-bg-surface">
         <div className="container-page py-8 grid grid-cols-2 md:grid-cols-4 gap-6">
           <Stat label="Total prompts" value={STATS.totalPrompts.toString()} />
@@ -70,14 +67,13 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Three pillars */}
       <section className="container-page py-20 md:py-28">
         <div className="grid md:grid-cols-3 gap-6">
           <PillarCard
             icon={<BookOpen size={20} />}
             eyebrow="Part I"
             title="Completed exercises"
-            desc={`All ${STATS.exercises} prompt engineering exercises done against real situations, coffee brewing, an EM career decision, a Sierra backpacking trip, an apology I owed a teammate. Each shows the prompt I ran, what came back, and what I learned.`}
+            desc={`All ${STATS.exercises} prompt engineering exercises done against real situations: coffee brewing, an EM career decision, a Sierra backpacking trip, an apology I owed a teammate. Each shows the prompt I ran, what came back, and what I learned.`}
             href="/exercises/"
             cta="View exercises"
           />
@@ -85,7 +81,7 @@ export default function HomePage() {
             icon={<Library size={20} />}
             eyebrow="Part II"
             title="Saved templates"
-            desc={`${STATS.templates} reusable templates across ${STATS.categories} categories, email, code review, analysis, planning, negotiation, verification. Search, filter, copy. Every Full MASTER prompt has all 9 layers.`}
+            desc={`${STATS.templates} reusable templates across ${STATS.categories} categories: email, code review, analysis, planning, negotiation, verification. Search, filter, copy. Every Full MASTER prompt has all 9 layers.`}
             href="/library/"
             cta="Browse library"
             featured
@@ -101,7 +97,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* MASTER framework preview */}
       <section className="container-page py-20 md:py-28">
         <div className="max-w-2xl mb-12">
           <p className="heading-eyebrow mb-4">The Framework</p>
@@ -143,7 +138,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* CTA */}
       <section className="container-page py-20 md:py-28">
         <div className="card-elevated p-10 md:p-16 text-center relative overflow-hidden">
           <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent to-transparent" />
@@ -201,4 +195,17 @@ function PillarCard({
     >
       <div className="flex items-center gap-2 mb-4 text-accent">
         {icon}
-        <span className="he
+        <span className="heading-eyebrow">{eyebrow}</span>
+      </div>
+      <h3 className="text-xl font-bold mb-3 group-hover:text-accent transition-colors">
+        {title}
+      </h3>
+      <p className="text-sm text-fg-muted leading-relaxed mb-6 flex-1">
+        {desc}
+      </p>
+      <span className="text-sm font-medium text-fg inline-flex items-center gap-1.5 group-hover:gap-2.5 transition-all">
+        {cta} <ArrowRight size={14} />
+      </span>
+    </Link>
+  );
+}

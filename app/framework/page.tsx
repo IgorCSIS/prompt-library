@@ -327,25 +327,17 @@ export default function FrameworkPage() {
       <section className="container-page py-16">
         <div className="card-elevated p-8 md:p-12 relative overflow-hidden">
           <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent to-transparent" />
-          <p className="heading-eyebrow mb-3">Complete Reference</p>
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-6">
-            The full MASTER template
+              <h2 className="heading-section mb-5 text-center">
+            Now go run one.
           </h2>
-          <p className="text-fg-muted mb-6 max-w-2xl">
-            Copy this into a new prompt and fill in each section. For simpler
-            tasks, use only Mission + Task + Output + one or two constraints
-            (the MASTER-lite pattern).
+          <p className="text-lg text-fg-muted max-w-xl mx-auto mb-8 text-center">
+            Pick a template, fill the brackets, and ship. The library is
+            organised by task so you can find what fits in under ten seconds.
           </p>
-          <div className="bg-bg border border-border rounded-md overflow-hidden">
-            <div className="flex items-center justify-between px-4 py-2.5 border-b border-border bg-bg-surface/60">
-              <span className="heading-eyebrow !text-fg-muted">
-                Full MASTER template
-              </span>
-              <CopyButton text={FULL_TEMPLATE} />
-            </div>
-            <pre className="prose-prompt p-4 md:p-6 overflow-x-auto">
-              {FULL_TEMPLATE}
-            </pre>
+          <div className="flex justify-center">
+            <a href="/library/" className="btn-primary">
+              Open the library
+            </a>
           </div>
         </div>
       </section>

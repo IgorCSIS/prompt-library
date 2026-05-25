@@ -33,13 +33,15 @@ export default function LibraryPage() {
       <section className="container-page pt-16 pb-8">
         <div className="max-w-3xl">
           <p className="heading-eyebrow mb-5">
-            Part II · {templates.length} Saved Templates
+            Part II &middot; {templates.length} Templates &middot; {categories.length} Categories
           </p>
-          <h1 className="heading-display mb-6">The Library</h1>
+          <h1 className="heading-display mb-6">The template library</h1>
           <p className="text-lg text-fg-muted leading-relaxed">
-            Reusable templates. Placeholders in [BRACKETS] are intentional,
-            fill them in before running. Organized by task type, not by chapter.
-            Find what fits, copy the template, fill the brackets, run it.
+            {templates.length} reusable templates I actually run. Search by
+            keyword, filter by category or framework, copy the prompt, fill in
+            the bracketed variables, ship it. Every Full MASTER prompt has all
+            nine layers; every MASTER-lite prompt earned the scaled-down tag
+            with a reason.
           </p>
         </div>
       </section>

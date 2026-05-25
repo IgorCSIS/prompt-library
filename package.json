@@ -2,7 +2,7 @@
   "name": "prompt-engineering-portfolio",
   "version": "1.0.0",
   "private": true,
-  "description": "MASTER framework prompt library — a portfolio piece by nifty",
+  "description": "MASTER framework prompt library , a portfolio piece by nifty",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
