@@ -1,0 +1,92 @@
+[
+  {
+    "name": "Email & Communication",
+    "count": 28,
+    "slug": "email-communication"
+  },
+  {
+    "name": "Drafting & Long-Form Writing",
+    "count": 30,
+    "slug": "drafting-long-form-writing"
+  },
+  {
+    "name": "Analysis & Decision Support",
+    "count": 28,
+    "slug": "analysis-decision-support"
+  },
+  {
+    "name": "Brainstorming & Ideation",
+    "count": 19,
+    "slug": "brainstorming-ideation"
+  },
+  {
+    "name": "Learning & Explanation",
+    "count": 24,
+    "slug": "learning-explanation"
+  },
+  {
+    "name": "Code & Technical",
+    "count": 30,
+    "slug": "code-technical"
+  },
+  {
+    "name": "Data Analysis & Structuring",
+    "count": 18,
+    "slug": "data-analysis-structuring"
+  },
+  {
+    "name": "Research & Investigation",
+    "count": 16,
+    "slug": "research-investigation"
+  },
+  {
+    "name": "Creative Writing",
+    "count": 22,
+    "slug": "creative-writing"
+  },
+  {
+    "name": "Planning (Projects, Weeks, Careers)",
+    "count": 24,
+    "slug": "planning-projects-weeks-careers"
+  },
+  {
+    "name": "Self-Improvement & Reflection",
+    "count": 22,
+    "slug": "self-improvement-reflection"
+  },
+  {
+    "name": "System Prompts & Custom Assistants",
+    "count": 18,
+    "slug": "system-prompts-custom-assistants"
+  },
+  {
+    "name": "Role-Based Prompts",
+    "count": 18,
+    "slug": "role-based-prompts"
+  },
+  {
+    "name": "Chain-of-Thought & Few-Shot Templates",
+    "count": 18,
+    "slug": "chain-of-thought-few-shot-templates"
+  },
+  {
+    "name": "Meetings & Productivity",
+    "count": 15,
+    "slug": "meetings-productivity"
+  },
+  {
+    "name": "Career & Job Search",
+    "count": 15,
+    "slug": "career-job-search"
+  },
+  {
+    "name": "Negotiation & Persuasion",
+    "count": 12,
+    "slug": "negotiation-persuasion"
+  },
+  {
+    "name": "Verification, Bias Audit & Critical Review",
+    "count": 15,
+    "slug": "verification-bias-audit-critical-review"
+  }
+]
