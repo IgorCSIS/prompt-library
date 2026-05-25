@@ -1,10 +1,10 @@
-# Setup & Deploy — Run these commands in order
+# Setup & Deploy, Run these commands in order
 
 This is the step-by-step. Each block is a copy-paste shell command. Run them in PowerShell, Terminal, or your shell of choice.
 
 ---
 
-## Step 1 — Install dependencies and verify locally
+## Step 1, Install dependencies and verify locally
 
 Open a terminal in the `portfolio-site/` folder and run:
 
@@ -28,19 +28,19 @@ Stop the server when done: `Ctrl+C`.
 
 ---
 
-## Step 2 — Build the static site
+## Step 2, Build the static site
 
 ```bash
 npm run build
 ```
 
-This produces a static `out/` folder. The site is fully prerendered — no server needed, no runtime, no API calls. ~500 KB total.
+This produces a static `out/` folder. The site is fully prerendered, no server needed, no runtime, no API calls. ~500 KB total.
 
 ---
 
-## Step 3 — Create the GitHub repository
+## Step 3, Create the GitHub repository
 
-Create a new repo on github.com — let's say `prompt-library` (or whatever name you want). **Public** so GitHub Pages is free. **Don't** initialise it with a README — we already have one.
+Create a new repo on github.com, let's say `prompt-library` (or whatever name you want). **Public** so GitHub Pages is free. **Don't** initialise it with a README, we already have one.
 
 Then in your terminal, from the `portfolio-site/` folder:
 
@@ -57,7 +57,7 @@ git push -u origin main
 
 ---
 
-## Step 4 — Enable GitHub Pages
+## Step 4, Enable GitHub Pages
 
 1. In your new repo on github.com → **Settings** (top nav)
 2. Left sidebar → **Pages**
@@ -76,7 +76,7 @@ Watch the deploy at: `https://github.com/YOUR_USERNAME/prompt-library/actions`
 
 ---
 
-## Step 5 (optional) — Custom domain
+## Step 5 (optional), Custom domain
 
 If you want a custom domain like `prompts.nifty.dev` instead of `.github.io`:
 
@@ -96,7 +96,7 @@ assetPrefix: '',
 
 ---
 
-## Step 6 (alternative) — Deploy to Vercel instead
+## Step 6 (alternative), Deploy to Vercel instead
 
 If you'd rather use Vercel (smoother, faster, free):
 
@@ -110,7 +110,7 @@ If you'd rather use Vercel (smoother, faster, free):
 
 ---
 
-## Step 7 — Wire up the scraper
+## Step 7, Wire up the scraper
 
 When your scraper is ready, point it to write JSON to `data/scraped.json` following the schema documented in `README.md` (section "Scraper integration").
 
@@ -143,9 +143,9 @@ The deploy workflow handles the rest.
 
 **`npm install` fails:** make sure you have Node 18+ (`node --version`). If older, install from nodejs.org.
 
-**`npm run build` fails:** the error message names the file and line. Most likely a stale dependency — try `rm -rf node_modules .next && npm install && npm run build`.
+**`npm run build` fails:** the error message names the file and line. Most likely a stale dependency, try `rm -rf node_modules .next && npm install && npm run build`.
 
-**GitHub Pages shows a blank page:** check the Actions tab for the failing run. Usually a base path mismatch — confirm the workflow set `NEXT_PUBLIC_BASE_PATH` correctly for your repo name.
+**GitHub Pages shows a blank page:** check the Actions tab for the failing run. Usually a base path mismatch, confirm the workflow set `NEXT_PUBLIC_BASE_PATH` correctly for your repo name.
 
 **Site shows but assets/CSS missing:** also a base path issue. The workflow sets it from the repo name, but if your repo is named `username.github.io` (a user-site), base path should be empty.
 

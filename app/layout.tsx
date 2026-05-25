@@ -3,46 +3,34 @@ import './globals.css';
 import { Nav } from '@/components/Nav';
 import { Footer } from '@/components/Footer';
 
+const SITE_URL = 'https://IgorCSIS.github.io/prompt-library';
+const SITE_NAME = 'The MASTER Prompt Library';
+const TAGLINE = 'Prompts engineered to actually work';
+const DESC =
+  '427 career-grade prompts built on the 9-layer MASTER framework. Completed prompt engineering exercises, daily-use templates for code, writing, analysis, planning, and negotiation, plus a live scraped feed of the best prompts from across the web.';
+
 export const metadata: Metadata = {
-  title: 'The MASTER Prompt Library — nifty',
-  description:
-    'A career-grade library of 427 prompts built on the 9-layer MASTER framework. Completed CSIS 275 exercises, daily-use templates, and a live scraped feed of the best prompts from across the web.',
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: `${SITE_NAME}, ${TAGLINE}`,
+    template: `%s, ${SITE_NAME}`,
+  },
+  description: DESC,
+  applicationName: SITE_NAME,
+  generator: 'Next.js',
   keywords: [
     'prompt engineering',
     'MASTER framework',
-    'LLM',
-    'Claude',
-    'ChatGPT',
-    'AI prompts',
     'prompt library',
-    'CSIS 275',
-  ],
-  authors: [{ name: 'nifty' }],
-  openGraph: {
-    title: 'The MASTER Prompt Library',
-    description: '427 career-grade prompts on the 9-layer MASTER framework.',
-    type: 'website',
-  },
-};
-
-export const viewport: Viewport = {
-  themeColor: '#0a0a0c',
-  width: 'device-width',
-  initialScale: 1,
-};
-
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  return (
-    <html lang="en" className="dark">
-      <body className="noise min-h-screen flex flex-col">
-        <Nav />
-        <main className="flex-1">{children}</main>
-        <Footer />
-      </body>
-    </html>
-  );
-}
+    'ChatGPT prompts',
+    'Claude prompts',
+    'Gemini prompts',
+    'LLM prompts',
+    'AI prompts',
+    'best prompts',
+    'prompt templates',
+    'few-shot prompting',
+    'chain of thought',
+    'CO-STAR',
+    'prompt engineering',
+    'prompt en

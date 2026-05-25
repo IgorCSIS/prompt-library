@@ -1,16 +1,42 @@
+import type { Metadata } from 'next';
 import { CopyButton } from '@/components/CopyButton';
+
+export const metadata: Metadata = {
+  title: 'The MASTER Framework, a 9-Layer Prompt Engineering System',
+  description:
+    'A complete reference for the MASTER prompt engineering framework: Mission, Agent, Situation, Task, Examples, Rules, Think, Eval, Output. Each layer prevents a specific failure mode in LLM output. With examples and the full copy-paste template.',
+  keywords: [
+    'MASTER framework',
+    'prompt engineering framework',
+    'CO-STAR alternative',
+    'chain of thought',
+    'few-shot prompting',
+    'system prompts',
+    'self-evaluation prompts',
+    'how to write prompts',
+    'prompt engineering principles',
+    'LLM prompt design',
+  ],
+  alternates: { canonical: '/framework/' },
+  openGraph: {
+    title: 'The MASTER Framework, a 9-Layer Prompt Engineering System',
+    description: 'Mission, Agent, Situation, Task, Examples, Rules, Think, Eval, Output. The complete reference with examples.',
+    url: '/framework/',
+    images: ['/og-image.svg'],
+  },
+};
 
 const LAYERS = [
   {
     letter: 'M',
     name: 'Mission',
     tag: 'Layer 1',
-    why: 'The single, unambiguous statement of what success looks like. Most prompts fail here — they describe activity, not outcome. The model needs to know the destination, not just the journey.',
+    why: 'The single, unambiguous statement of what success looks like. Most prompts fail here, they describe activity, not outcome. The model needs to know the destination, not just the journey.',
     include: [
       'The end goal in one sentence',
       'Who will use or judge the output',
       'What "good" looks like vs. "great"',
-      'The stakes — why this matters',
+      'The stakes, why this matters',
     ],
     example: `## MISSION
 Produce a 500-word executive summary that convinces a non-technical CFO to approve a $200K AI infrastructure budget. Success means the CFO understands the ROI without needing a technical background.`,
@@ -21,7 +47,7 @@ Produce a 500-word executive summary that convinces a non-technical CFO to appro
     letter: 'A',
     name: 'Agent',
     tag: 'Layer 2',
-    why: 'The persona, identity, and mental model the AI adopts. This is not decoration — it fundamentally shifts vocabulary, reasoning style, assumptions, and confidence. A lawyer thinks differently than a poet.',
+    why: 'The persona, identity, and mental model the AI adopts. This is not decoration, it fundamentally shifts vocabulary, reasoning style, assumptions, and confidence. A lawyer thinks differently than a poet.',
     include: [
       'Professional role and seniority level',
       'Domain expertise and worldview',
@@ -31,13 +57,13 @@ Produce a 500-word executive summary that convinces a non-technical CFO to appro
     example: `## AGENT
 You are a Principal Product Manager at a Series B SaaS company with 8 years of experience. You think in frameworks, speak plainly to executives, and always tie recommendations to revenue or retention metrics. Direct, never hedges unnecessarily.`,
     failure:
-      'The model responds as a generic "helpful assistant" — wishy-washy, overly balanced, lacking the confident stance a true expert would provide.',
+      'The model responds as a generic "helpful assistant", wishy-washy, overly balanced, lacking the confident stance a true expert would provide.',
   },
   {
     letter: 'S',
     name: 'Situation',
     tag: 'Layer 3',
-    why: 'The full context the model needs to be calibrated to your reality, not a generic case. Without it, the model invents assumptions — and those assumptions are often wrong.',
+    why: 'The full context the model needs to be calibrated to your reality, not a generic case. Without it, the model invents assumptions, and those assumptions are often wrong.',
     include: [
       'Background on the problem',
       'Relevant history or prior decisions',
@@ -48,13 +74,13 @@ You are a Principal Product Manager at a Series B SaaS company with 8 years of e
     example: `## SITUATION
 We are a 40-person B2B SaaS company. Our NPS dropped from 52 to 31 over the last two quarters. Our head of CS left last month. We have a board meeting in 3 weeks. The CEO wants a recovery plan but the engineering team is already at capacity. Budget is limited to $50K for Q3.`,
     failure:
-      'The model gives textbook advice that is technically correct but completely impractical — recommending a 6-month overhaul when you need results in 3 weeks with no engineering bandwidth.',
+      'The model gives textbook advice that is technically correct but completely impractical, recommending a 6-month overhaul when you need results in 3 weeks with no engineering bandwidth.',
   },
   {
     letter: 'T',
     name: 'Task',
     tag: 'Layer 4',
-    why: 'The specific, decomposed action you need performed. Not "help me with X" — but the exact steps, components, and deliverables broken into precise sub-tasks. Decomposition is the single most underused prompting technique.',
+    why: 'The specific, decomposed action you need performed. Not "help me with X", but the exact steps, components, and deliverables broken into precise sub-tasks. Decomposition is the single most underused prompting technique.',
     include: [
       'Primary deliverable, stated precisely',
       'Sub-tasks numbered in order',
@@ -86,16 +112,16 @@ Root Cause: Onboarding friction
 Evidence: 68% of detractors mentioned "hard to get started" in verbatim
 Intervention: Launch a live onboarding session every Tuesday. Owner: CS. Timeline: 5 days.
 
-[WEAK OUTPUT — AVOID]
+[WEAK OUTPUT, AVOID]
 "Improve the customer experience by making onboarding better."`,
     failure:
-      'The model produces output at the right semantic level but wrong structural level — too long, wrong format, wrong tone, missing the specific fields you needed.',
+      'The model produces output at the right semantic level but wrong structural level, too long, wrong format, wrong tone, missing the specific fields you needed.',
   },
   {
     letter: 'R',
     name: 'Rules',
     tag: 'Layer 6',
-    why: 'Explicit constraints and guardrails. What NOT to do is as important as what to do. Without rules, the model fills gaps with its defaults — which may be the opposite of what you need.',
+    why: 'Explicit constraints and guardrails. What NOT to do is as important as what to do. Without rules, the model fills gaps with its defaults, which may be the opposite of what you need.',
     include: [
       'Hard prohibitions (never do X)',
       'Style constraints (no jargon, no hedging)',
@@ -105,7 +131,7 @@ Intervention: Launch a live onboarding session every Tuesday. Owner: CS. Timelin
     example: `## RULES
 - Do NOT recommend hiring more CS staff (budget constraint)
 - Do NOT use phrases like "it is important to note" or "it is worth mentioning"
-- Do NOT hedge recommendations — state them directly
+- Do NOT hedge recommendations, state them directly
 - Keep all interventions executable by existing team
 - Maximum 3 bullet points per section`,
     failure:
@@ -115,7 +141,7 @@ Intervention: Launch a live onboarding session every Tuesday. Owner: CS. Timelin
     letter: '+',
     name: 'Think',
     tag: 'Bonus · Chain of Thought',
-    why: 'Explicit instruction for the model to reason before responding. This is one of the highest-leverage techniques in all of prompt engineering — it measurably improves accuracy on complex tasks by forcing step-by-step reasoning.',
+    why: 'Explicit instruction for the model to reason before responding. This is one of the highest-leverage techniques in all of prompt engineering, it measurably improves accuracy on complex tasks by forcing step-by-step reasoning.',
     include: [
       'Explicit "think step by step" instruction',
       'Reasoning structure (hypothesis → evidence → conclusion)',
@@ -136,7 +162,7 @@ Show this reasoning briefly, then deliver the final output.`,
     letter: '+',
     name: 'Eval',
     tag: 'Bonus · Self-Evaluation',
-    why: 'Instruction for the model to judge its own output before delivering it. Creates a feedback loop within a single inference — catching errors, gaps, and quality issues before they reach you.',
+    why: 'Instruction for the model to judge its own output before delivering it. Creates a feedback loop within a single inference, catching errors, gaps, and quality issues before they reach you.',
     include: [
       'Criteria to self-grade against',
       'Instruction to flag uncertainty',
@@ -145,9 +171,9 @@ Show this reasoning briefly, then deliver the final output.`,
     ],
     example: `## EVAL
 After drafting your response, score it on:
-- Specificity (1–5): Are recommendations concrete and actionable?
-- Feasibility (1–5): Are they executable given the constraints?
-- Completeness (1–5): Have I addressed all sub-tasks?
+- Specificity (1-5): Are recommendations concrete and actionable?
+- Feasibility (1-5): Are they executable given the constraints?
+- Completeness (1-5): Have I addressed all sub-tasks?
 
 If any score is below 4, revise before delivering.`,
     failure:
@@ -157,7 +183,7 @@ If any score is below 4, revise before delivering.`,
     letter: '+',
     name: 'Output',
     tag: 'Bonus · Output Contract',
-    why: 'The explicit contract for what the final response must look like — format, length, structure, delivery. This is different from Task (what to do) and Rules (what not to do) — this is the exact shape of the deliverable.',
+    why: 'The explicit contract for what the final response must look like, format, length, structure, delivery. This is different from Task (what to do) and Rules (what not to do), this is the exact shape of the deliverable.',
     include: [
       'Exact format (JSON, markdown, prose, table)',
       'Length or word count target',
@@ -167,7 +193,7 @@ If any score is below 4, revise before delivering.`,
     ],
     example: `## OUTPUT
 Format: Markdown with H2 headers
-Length: 400–600 words total
+Length: 400-600 words total
 Structure:
   ## Root Causes (3 max, evidence per item)
   ## Quick Wins (numbered list)
@@ -228,7 +254,7 @@ export default function FrameworkPage() {
           <p className="text-lg md:text-xl text-fg-muted leading-relaxed">
             A 9-layer system engineered from first principles to eliminate every
             root cause of prompt failure. Each layer addresses a specific
-            failure mode. Use it scaled to your task — Full MASTER for
+            failure mode. Use it scaled to your task, Full MASTER for
             high-stakes or reusable prompts, MASTER-lite when simpler is enough.
           </p>
         </div>

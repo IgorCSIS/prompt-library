@@ -1,11 +1,31 @@
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Rss, Clock, Database, GitBranch, ExternalLink } from 'lucide-react';
 import { scraped } from '@/lib/data';
 
-export const metadata = {
-  title: 'Scraped Prompts — Curated from across the web',
+export const metadata: Metadata = {
+  title: 'Best AI Prompts from Across the Web, Updated Daily',
   description:
-    'A live feed of the best prompts scraped from the web, scored against the MASTER framework. Updated by a scheduled scraper.',
+    'A live, source-attributed feed of the best prompts scraped from the web. Every prompt is scored against the MASTER framework and refreshed daily by a scheduled scraper. The go-to destination for prompts that actually work.',
+  keywords: [
+    'best AI prompts',
+    'curated prompt list',
+    'awesome prompts',
+    'top ChatGPT prompts',
+    'top Claude prompts',
+    'prompt feed',
+    'daily prompts',
+    'prompt aggregator',
+    'prompt discovery',
+    'where to find good prompts',
+  ],
+  alternates: { canonical: '/scraped/' },
+  openGraph: {
+    title: 'Best AI Prompts from Across the Web, Updated Daily',
+    description: 'A live, source-attributed feed of the best prompts on the internet. MASTER-framework scored.',
+    url: '/scraped/',
+    images: ['/og-image.svg'],
+  },
 };
 
 export default function ScrapedPage() {

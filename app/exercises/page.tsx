@@ -1,10 +1,28 @@
+import type { Metadata } from 'next';
 import { ExerciseCard } from '@/components/ExerciseCard';
 import { exercises, getChapters, exercisesByChapter } from '@/lib/data';
 
-export const metadata = {
-  title: 'Completed CSIS 275 Exercises',
+export const metadata: Metadata = {
+  title: '55 Completed Prompt Engineering Exercises',
   description:
-    'All 55 exercises from the CSIS 275 textbook, completed against real situations with personal notes.',
+    'All 55 exercises from the prompt engineering textbook, completed against real situations: coffee brewing comparisons, a real EM career decision, a Sierra hiking trip, an apology to a teammate. Each entry shows the prompt, the output, what I noticed, and a reusable template.',
+  keywords: [
+    'prompt engineering',
+    'prompt engineering course',
+    'prompt engineering exercises',
+    'AI course exercises',
+    'prompt log',
+    'completed prompt examples',
+    'how to do prompt engineering exercises',
+    'MASTER framework examples',
+  ],
+  alternates: { canonical: '/exercises/' },
+  openGraph: {
+    title: '55 Completed Prompt Engineering Exercises',
+    description: 'Every textbook exercise done against real situations with prompts, outputs, and personal notes.',
+    url: '/exercises/',
+    images: ['/og-image.svg'],
+  },
 };
 
 const CHAPTER_TITLES: Record<number, string> = {
@@ -38,8 +56,8 @@ export default function ExercisesPage() {
           </p>
           <h1 className="heading-display mb-6">Course exercises, done</h1>
           <p className="text-lg text-fg-muted leading-relaxed">
-            Every exercise from all 16 chapters of CSIS 275, completed against
-            real situations from my own life — coffee brewing, a career
+            Every exercise from all 16 chapters of prompt engineering practice, completed against
+            real situations from my own life, coffee brewing, a career
             inflection, a Sierra hike, an apology I owed a teammate. Each entry
             shows the prompt I ran, what came back, what I noticed, and the
             reusable template at the end for future use.
@@ -51,27 +69,4 @@ export default function ExercisesPage() {
         {chapters.map((ch) => {
           const chapterExercises = exercisesByChapter(ch);
           return (
-            <div key={ch}>
-              <div className="flex items-baseline justify-between mb-6 border-b border-border pb-3">
-                <h2 className="text-2xl font-bold tracking-tight">
-                  <span className="text-fg-subtle font-mono mr-3">
-                    Ch {ch.toString().padStart(2, '0')}
-                  </span>
-                  {CHAPTER_TITLES[ch]}
-                </h2>
-                <span className="text-sm text-fg-muted font-mono">
-                  {chapterExercises.length} exercises
-                </span>
-              </div>
-              <div className="space-y-3">
-                {chapterExercises.map((ex) => (
-                  <ExerciseCard key={ex.id} exercise={ex} />
-                ))}
-              </div>
-            </div>
-          );
-        })}
-      </section>
-    </>
-  );
-}
+            <div key={ch

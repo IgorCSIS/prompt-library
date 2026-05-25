@@ -55,7 +55,7 @@ export function Footer() {
           Built on the MASTER framework. Mission · Agent · Situation · Task · Examples · Rules · Think · Eval · Output
         </p>
         <p className="text-xs text-fg-subtle">
-          © {new Date().getFullYear()} — by nifty
+          © {new Date().getFullYear()}, by nifty
         </p>
       </div>
     </footer>

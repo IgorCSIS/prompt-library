@@ -72,7 +72,7 @@ export function ExerciseCard({ exercise }: ExerciseCardProps) {
           </section>
 
           <section>
-            <h4 className="heading-eyebrow mb-2">Reusable template — for future me</h4>
+            <h4 className="heading-eyebrow mb-2">Reusable template, for future me</h4>
             <PromptBlock text={exercise.reusable_template} showCopy />
           </section>
         </div>

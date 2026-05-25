@@ -1,11 +1,26 @@
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowRight, BookOpen, Library, Rss } from 'lucide-react';
 import { STATS } from '@/lib/data';
 
-export const metadata = {
-  title: 'About — How this library was built',
+export const metadata: Metadata = {
+  title: 'About, Why this prompt library exists and how it was built',
   description:
-    'Why this prompt library exists, how it was built, and the principles that govern every entry.',
+    'The principles behind the MASTER prompt library: every prompt earns its place by being distinct, every Full MASTER prompt has all 9 layers, the personal voice is the point. Built by nifty during a structured practice phase, maintained in real work.',
+  keywords: [
+    'about prompt library',
+    'prompt engineering portfolio',
+    'nifty IgorCSIS',
+    'prompt engineering principles',
+    'how to build a prompt library',
+  ],
+  alternates: { canonical: '/about/' },
+  openGraph: {
+    title: 'About, How this prompt library was built',
+    description: 'Principles, structure, maintenance cadence, and the tech stack.',
+    url: '/about/',
+    images: ['/og-image.svg'],
+  },
 };
 
 export default function AboutPage() {
@@ -20,8 +35,8 @@ export default function AboutPage() {
 
           <div className="prose prose-invert max-w-none space-y-6 text-fg-muted leading-relaxed">
             <p className="text-lg">
-              This started as a CSIS 275 prompt log — the required notebook of
-              prompts and reflections that every student in the course keeps. It
+              This started as a prompt log, the required notebook of
+              prompts and reflections that a prompt engineer keeps to track and improve their craft. It
               grew into something I actually use: a working library of {STATS.totalPrompts}{' '}
               prompts I reach for in real work.
             </p>
@@ -45,7 +60,7 @@ export default function AboutPage() {
 
             <Principle
               title="Full MASTER means all nine layers."
-              body="If a prompt is tagged Full MASTER, it has Mission, Agent, Situation, Task, Examples (where needed), Rules, Think, Eval, and Output. If any layer is missing, the tag is wrong — and the framework audit catches it."
+              body="If a prompt is tagged Full MASTER, it has Mission, Agent, Situation, Task, Examples (where needed), Rules, Think, Eval, and Output. If any layer is missing, the tag is wrong, and the framework audit catches it."
             />
 
             <Principle
@@ -55,12 +70,12 @@ export default function AboutPage() {
 
             <Principle
               title="The bracketed placeholders are intentional."
-              body="In Part II, every template has [BRACKETED_VARIABLES] for the user to fill in. That's not laziness — it's design. A template that pre-fills the variables is a one-shot prompt, not a template."
+              body="In Part II, every template has [BRACKETED_VARIABLES] for the user to fill in. That's not laziness, it's design. A template that pre-fills the variables is a one-shot prompt, not a template."
             />
 
             <Principle
               title="Banned AI-tell phrases are banned for a reason."
-              body="'Delve,' 'in conclusion,' 'passionate about,' 'results-driven' — these surface signals of pattern-completion without grounded reasoning. The RULES section of every prompt prohibits them. When the model defaults to them, it means the model isn't actually engaging with the situation."
+              body="'Delve,' 'in conclusion,' 'passionate about,' 'results-driven', these surface signals of pattern-completion without grounded reasoning. The RULES section of every prompt prohibits them. When the model defaults to them, it means the model isn't actually engaging with the situation."
             />
 
             <h2 className="text-2xl font-bold text-fg mt-12 mb-4">
@@ -75,7 +90,7 @@ export default function AboutPage() {
               <PartCard
                 icon={<BookOpen size={18} />}
                 title="Exercises"
-                desc={`${STATS.exercises} completed CSIS 275 exercises, against real situations.`}
+                desc={`${STATS.exercises} completed prompt engineering exercises, against real situations.`}
                 href="/exercises/"
               />
               <PartCard
@@ -110,7 +125,7 @@ export default function AboutPage() {
 
             <p>
               Static Next.js 14 site with Tailwind, deployed via GitHub
-              Pages or Vercel. Search is client-side via Fuse.js — no analytics,
+              Pages or Vercel. Search is client-side via Fuse.js, no analytics,
               no tracking, no third-party fonts beyond Google's Inter and
               JetBrains Mono. The whole site is under 500 KB.
             </p>
@@ -137,31 +152,4 @@ export default function AboutPage() {
 
 function Principle({ title, body }: { title: string; body: string }) {
   return (
-    <div className="border-l-2 border-accent pl-5 py-1">
-      <h3 className="font-semibold text-fg mb-1.5 not-prose">{title}</h3>
-      <p className="text-fg-muted text-base">{body}</p>
-    </div>
-  );
-}
-
-function PartCard({
-  icon,
-  title,
-  desc,
-  href,
-}: {
-  icon: React.ReactNode;
-  title: string;
-  desc: string;
-  href: string;
-}) {
-  return (
-    <Link href={href} className="card p-4 group hover:border-accent/30 transition-all">
-      <div className="flex items-center gap-2 text-accent mb-2">
-        {icon}
-        <span className="heading-eyebrow">{title}</span>
-      </div>
-      <p className="text-sm text-fg-muted leading-relaxed">{desc}</p>
-    </Link>
-  );
-}
+    <div className="border-l-2 border-accen

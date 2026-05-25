@@ -58,7 +58,7 @@ export function TemplateCard({ template, defaultOpen = false }: TemplateCardProp
         <div className="px-5 pb-5 space-y-4 animate-slide-up">
           <PromptBlock
             text={template.prompt}
-            label="Template — fill in the brackets and run"
+            label="Template, fill in the brackets and run"
           />
           {template.notes && (
             <div className="px-4 py-3 rounded-md bg-bg-subtle border-l-2 border-accent">

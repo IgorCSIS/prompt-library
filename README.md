@@ -1,184 +1,111 @@
+<div align="center">
+
 # The MASTER Prompt Library
 
-A career-grade reference of **427 prompts** built on the 9-layer MASTER framework. Live site: completed CSIS 275 exercises, daily-use templates, and a scheduled-scraper-driven feed of curated prompts from across the web.
+### 427 career-grade AI prompts on the 9-layer MASTER framework
 
-## What's here
+**[Live site](https://IgorCSIS.github.io/prompt-library/)** · **[Browse 372 templates](https://IgorCSIS.github.io/prompt-library/library/)** · **[The framework](https://IgorCSIS.github.io/prompt-library/framework/)** · **[Completed exercises](https://IgorCSIS.github.io/prompt-library/exercises/)**
 
-- **Part I — Exercises** (`/exercises/`): All 55 CSIS 275 exercises completed against real situations, each with my setup, the prompt I ran, what came back, and a personal note.
-- **Part II — Library** (`/library/`): 372 reusable templates across 18 categories. Search, filter by framework or category, copy-to-clipboard.
-- **Part III — Scraped** (`/scraped/`): A live feed populated by a scheduled scraper (see `data/scraped.json` schema).
-- **Framework** (`/framework/`): Interactive 9-layer MASTER explainer with examples and the full template.
+![Next.js](https://img.shields.io/badge/Next.js-15-000?logo=next.js&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-strict-3178C6?logo=typescript&logoColor=white)
+![Tailwind](https://img.shields.io/badge/Tailwind-3.4-06B6D4?logo=tailwindcss&logoColor=white)
+![Static](https://img.shields.io/badge/static-export-success)
+![License](https://img.shields.io/badge/source-MIT-blue)
+![Prompts](https://img.shields.io/badge/prompts-427-e8ff47)
 
-## Stack
+</div>
 
-- **Next.js 14** (App Router, static export)
-- **TypeScript** (strict mode)
-- **Tailwind CSS** + custom design system
-- **Fuse.js** for client-side fuzzy search
-- **Lucide** icons
-- **Inter** + **JetBrains Mono** fonts
+---
 
-The whole site is under 500 KB. No analytics. No tracking. No third-party CDNs beyond Google Fonts.
+## What this is
 
-## Local development
+A working library of **427 prompts** that I actually run. Not a top-10 listicle, not a marketing site, not a tutorial. Each prompt is built on the 9-layer **MASTER framework** (Mission, Agent, Situation, Task, Examples, Rules, Think, Eval, Output) and earns its place by being meaningfully different from every other prompt in the library.
+
+The library is organised in three parts:
+
+**Part I, [Completed Prompt Engineering Exercises](https://IgorCSIS.github.io/prompt-library/exercises/) (55).** Every exercise from all 16 chapters of prompt engineering practice, done against real situations: a coffee-brewing comparison across three LLMs, the engineering-manager decision I'm actually weighing, a Sierra Nevada hiking trip, an apology I owed a teammate. Each entry shows what I picked, the prompt I ran, what came back, what I noticed, and the reusable template at the end.
+
+**Part II, [The Daily-Use Template Library](https://IgorCSIS.github.io/prompt-library/library/) (372).** Reusable templates organised by task type across 18 categories: email, code review, analysis, brainstorming, learning, code, data, research, creative, planning, self-improvement, system prompts, role-based, technique scaffolds, meetings, career, negotiation, verification. Searchable, filterable, copy-to-clipboard. Every Full MASTER prompt has all 9 layers.
+
+**Part III, [Scraped Prompts](https://IgorCSIS.github.io/prompt-library/scraped/).** A live, source-attributed feed of the best prompts from across the web, scored against the MASTER framework. Refreshed daily by a scheduled scraper. The goal: a single trusted destination for prompts that actually work, not the recycled top-10 lists.
+
+## Why this exists
+
+Most prompt libraries are aggregations. This one is a working notebook. Every entry was either used in real work or chosen because it filled a gap I noticed in real work. The notes are written for future-me, not for an audience, so they are terse, opinionated, and occasionally wrong. That is the point.
+
+## Features
+
+- **Full client-side search** across all 372 templates (Fuse.js, sub-100ms results)
+- **Category and framework filters** for fast narrowing
+- **Copy-to-clipboard** on every prompt with success feedback
+- **Dark-mode-first design system** with WCAG-AA contrast
+- **Responsive** from 320px to 4K
+- **No analytics, no tracking, no cookies**
+- **Static export** under 500 KB, deploys anywhere
+- **Open Graph and Twitter Card** meta with custom branded image
+- **JSON-LD structured data** for rich search results
+- **Sitemap and robots.txt** generated at build time
+- **Accessible keyboard navigation** throughout
+
+## Tech stack
+
+| Layer | Choice | Why |
+|---|---|---|
+| Framework | **Next.js 15** (App Router, static export) | Best DX, zero-config static builds, file-based routing |
+| Language | **TypeScript** (strict mode) | Catches the bugs before they ship |
+| Styling | **Tailwind CSS 3.4** + custom tokens | Atomic CSS, zero runtime cost |
+| Components | **Custom** (no UI library) | Smaller bundle, every component understood |
+| Search | **Fuse.js 7** | Lightweight client-side fuzzy search |
+| Icons | **Lucide** | 1.5KB per icon, tree-shaken |
+| Fonts | **Inter** + **JetBrains Mono** | Variable fonts, subset by Google |
+| Hosting | **GitHub Pages** (or Vercel, or anywhere) | Free, fast, no vendor lock-in |
+| Build | **GitHub Actions** | Auto-deploy on every push to main |
+
+## Quick start
 
 ```bash
+git clone https://github.com/IgorCSIS/prompt-library.git
+cd prompt-library
 npm install
 npm run dev
 ```
 
-Open http://localhost:3000
+Open [http://localhost:3000](http://localhost:3000).
 
-## Building for production
+Production build:
 
 ```bash
 npm run build
-```
-
-Static site is output to `out/`. Deploy that folder anywhere — GitHub Pages, Vercel, Netlify, Cloudflare Pages, an S3 bucket. The included `.github/workflows/deploy.yml` automates GitHub Pages on every push to `main`.
-
-## Deploy to GitHub Pages (one-time setup)
-
-1. Push this repo to GitHub.
-2. In the repo: **Settings → Pages → Source: GitHub Actions**.
-3. Push to `main`. The workflow builds and deploys automatically.
-4. Your site is live at `https://<username>.github.io/<repo-name>/`.
-
-## Deploy to Vercel (alternative)
-
-1. Push to GitHub (or GitLab, Bitbucket).
-2. Go to vercel.com → New Project → Import the repo.
-3. Vercel detects Next.js automatically. No config needed.
-4. Custom domain: configurable from the Vercel dashboard.
-
-## Updating prompts
-
-All prompt data lives in `data/`:
-
-- `data/templates.json` — the 372 daily-use templates
-- `data/exercises.json` — the 55 completed exercises
-- `data/categories.json` — category metadata with counts
-- `data/scraped.json` — feed for the scheduled scraper
-
-Edit these JSON files directly, commit, push. The site rebuilds automatically.
-
-## Scraper integration
-
-The scraped-prompts page reads from `data/scraped.json`. Your scheduled scraper should write to this file using this schema:
-
-```json
-{
-  "schema_version": "1.0",
-  "last_updated": "2026-05-25T18:00:00Z",
-  "sources": [
-    "promptingguide.ai",
-    "github.com/f/awesome-chatgpt-prompts"
-  ],
-  "prompts": [
-    {
-      "id": "src-001-strategic-decision",
-      "title": "Strategic decision framework for high-stakes choices",
-      "source_url": "https://example.com/path",
-      "source_name": "Source Name",
-      "scraped_at": "2026-05-25T17:55:00Z",
-      "category": "Analysis & Decision Support",
-      "prompt": "## MISSION\n[the actual prompt text]",
-      "attribution": "@author (if known)",
-      "notes": "Optional editorial note"
-    }
-  ]
-}
-```
-
-Recommended scraper flow:
-
-1. Scraper runs on cron (GitHub Actions schedule trigger, Cloudflare Cron, or external).
-2. Scraper writes to `data/scraped.json`.
-3. Scraper commits the file change and pushes to `main`.
-4. GitHub Pages action rebuilds and redeploys automatically.
-
-A starter GitHub Actions workflow for the scraper (place at `.github/workflows/scraper.yml`):
-
-```yaml
-name: Scheduled scraper
-on:
-  schedule:
-    - cron: '0 12 * * *'  # daily at noon UTC
-  workflow_dispatch:
-
-jobs:
-  scrape:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
-      - run: pip install -r scraper/requirements.txt
-      - run: python scraper/run.py
-      - name: Commit
-        run: |
-          git config user.name "scraper-bot"
-          git config user.email "scraper@noreply"
-          git add data/scraped.json
-          git diff --staged --quiet || git commit -m "chore: scraper update"
-          git push
+# Outputs static site to ./out/
 ```
 
 ## Project structure
 
 ```
 .
-├── app/                      # Next.js App Router pages
-│   ├── page.tsx              # Hero / landing
-│   ├── framework/            # 9-layer MASTER explainer
-│   ├── library/              # Browseable templates
-│   ├── exercises/            # Completed exercises
-│   ├── scraped/              # Scraped feed
-│   ├── about/                # About this project
-│   ├── layout.tsx
-│   └── globals.css
-├── components/               # React components
-│   ├── Nav.tsx
+├── app/                          # Next.js App Router pages
+│   ├── page.tsx                  # Hero / landing
+│   ├── framework/page.tsx        # 9-layer MASTER explainer with examples
+│   ├── library/page.tsx          # Searchable template browser
+│   ├── exercises/page.tsx        # Completed prompt engineering exercises by chapter
+│   ├── scraped/page.tsx          # Live scraper-fed prompt feed
+│   ├── about/page.tsx            # Principles and tech stack
+│   ├── sitemap.ts                # Auto-generated sitemap.xml
+│   ├── layout.tsx                # Root layout with metadata + JSON-LD
+│   └── globals.css               # Tailwind + design tokens
+├── components/                   # React components
+│   ├── Nav.tsx                   # Sticky glass nav with active state
 │   ├── Footer.tsx
-│   ├── TemplateCard.tsx
-│   ├── ExerciseCard.tsx
-│   ├── LibraryBrowser.tsx    # Search + filter UI
-│   ├── PromptBlock.tsx
+│   ├── LibraryBrowser.tsx        # Search + filter sidebar
+│   ├── TemplateCard.tsx          # Expandable template entry
+│   ├── ExerciseCard.tsx          # Expandable exercise entry with my-setup
+│   ├── PromptBlock.tsx           # Shaded prompt body with copy button
 │   └── CopyButton.tsx
 ├── lib/
-│   ├── types.ts
-│   ├── data.ts               # JSON loaders
-│   └── utils.ts
-├── data/                     # Prompt JSON files
-│   ├── templates.json
-│   ├── exercises.json
-│   ├── categories.json
-│   └── scraped.json
-└── .github/workflows/        # CI/CD
-    └── deploy.yml
-```
-
-## The MASTER framework
-
-Every Full MASTER prompt in this library has all 9 layers:
-
-- **M**ission — what success looks like
-- **A**gent — the persona and expertise
-- **S**ituation — the context the model needs
-- **T**ask — decomposed sub-tasks
-- **E**xamples — input → output pairs (where needed)
-- **R**ules — explicit constraints, what NOT to do
-- **+** Think — chain-of-thought reasoning
-- **+** Eval — self-evaluation before delivery
-- **+** Output — the exact shape of the deliverable
-
-MASTER-lite prompts use Mission + Task + Output + one or two constraints. Both tags are documented per-prompt.
-
-## License
-
-Source code: MIT. The prompts themselves are under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) — use them, modify them, share them, just credit the source.
-
-## Maintained by
-
-[@nifty](https://github.com/) — this is part of a portfolio. Built in service of the CSIS 275 course, then extended into a working tool I actually use.
+│   ├── types.ts                  # TypeScript types for prompts
+│   ├── data.ts                   # JSON loaders + STATS helpers
+│   └── utils.ts                  # cn() and slugify()
+├── data/                         # Prompt JSON, the source of truth
+│   ├── templates.json            # 372 daily-use templates
+│   ├── exercises.json            # 55 completed exercises
+│   ├── categories.json    

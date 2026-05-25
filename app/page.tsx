@@ -1,6 +1,14 @@
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowRight, BookOpen, Library, Sparkles, Rss, Zap } from 'lucide-react';
 import { STATS } from '@/lib/data';
+
+export const metadata: Metadata = {
+  title: 'The MASTER Prompt Library, 427 Career-Grade AI Prompts',
+  description:
+    '427 prompts built on the 9-layer MASTER framework for ChatGPT, Claude, and Gemini. Completed prompt engineering exercises, daily-use templates for code, writing, analysis, planning, negotiation, plus a live scraped feed of the best prompts from across the web.',
+  alternates: { canonical: '/' },
+};
 
 const MASTER_LAYERS = [
   { letter: 'M', name: 'Mission', desc: 'What success looks like, in one sentence.' },
@@ -36,7 +44,7 @@ export default function HomePage() {
             </h1>
             <p className="text-lg md:text-xl text-fg-muted leading-relaxed max-w-2xl mb-10 animate-slide-up">
               A career-grade library of {STATS.totalPrompts} prompts built on
-              the MASTER framework — completed CSIS 275 coursework, daily-use
+              the MASTER framework, completed exercises, daily-use
               templates I actually run, and a live feed of the best prompts
               scraped from across the web.
             </p>
@@ -69,7 +77,7 @@ export default function HomePage() {
             icon={<BookOpen size={20} />}
             eyebrow="Part I"
             title="Completed exercises"
-            desc={`All ${STATS.exercises} CSIS 275 exercises done against real situations — coffee brewing, an EM career decision, a Sierra backpacking trip, an apology I owed a teammate. Each shows the prompt I ran, what came back, and what I learned.`}
+            desc={`All ${STATS.exercises} prompt engineering exercises done against real situations, coffee brewing, an EM career decision, a Sierra backpacking trip, an apology I owed a teammate. Each shows the prompt I ran, what came back, and what I learned.`}
             href="/exercises/"
             cta="View exercises"
           />
@@ -77,7 +85,7 @@ export default function HomePage() {
             icon={<Library size={20} />}
             eyebrow="Part II"
             title="Saved templates"
-            desc={`${STATS.templates} reusable templates across ${STATS.categories} categories — email, code review, analysis, planning, negotiation, verification. Search, filter, copy. Every Full MASTER prompt has all 9 layers.`}
+            desc={`${STATS.templates} reusable templates across ${STATS.categories} categories, email, code review, analysis, planning, negotiation, verification. Search, filter, copy. Every Full MASTER prompt has all 9 layers.`}
             href="/library/"
             cta="Browse library"
             featured
@@ -102,7 +110,7 @@ export default function HomePage() {
           </h2>
           <p className="text-lg text-fg-muted leading-relaxed">
             MASTER is what every prompt in this library is built on. It is not
-            a checklist — it is a diagnosis tool. When output disappoints,
+            a checklist, it is a diagnosis tool. When output disappoints,
             it tells you which layer failed.
           </p>
         </div>
@@ -193,17 +201,4 @@ function PillarCard({
     >
       <div className="flex items-center gap-2 mb-4 text-accent">
         {icon}
-        <span className="heading-eyebrow">{eyebrow}</span>
-      </div>
-      <h3 className="text-xl font-bold mb-3 group-hover:text-accent transition-colors">
-        {title}
-      </h3>
-      <p className="text-sm text-fg-muted leading-relaxed mb-6 flex-1">
-        {desc}
-      </p>
-      <span className="text-sm font-medium text-fg inline-flex items-center gap-1.5 group-hover:gap-2.5 transition-all">
-        {cta} <ArrowRight size={14} />
-      </span>
-    </Link>
-  );
-}
+        <span className="he
