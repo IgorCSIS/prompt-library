@@ -3,6 +3,8 @@ import Link from 'next/link';
 import { ArrowRight, BookOpen, Library, Sparkles, Rss, Zap } from 'lucide-react';
 import { STATS } from '@/lib/data';
 
+const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? '';
+
 export const metadata: Metadata = {
   title: 'The MASTER Prompt Library, 427 Career-Grade AI Prompts',
   description:
@@ -28,7 +30,7 @@ export default function HomePage() {
       <section className="container-page pt-8 md:pt-10 pb-2">
         <div className="rounded-xl overflow-hidden border border-border-subtle shadow-2xl shadow-accent/5 animate-fade-in">
           <img
-            src="/hero-banner.svg"
+            src={`${BASE}/hero-banner.svg`}
             alt="The MASTER Prompt Library. 427 prompts engineered on the 9-layer MASTER framework: Mission, Agent, Situation, Task, Examples, Rules, Think, Eval, Output."
             width={1600}
             height={460}
