@@ -1,10 +1,14 @@
 <div align="center">
 
+<a href="https://IgorCSIS.github.io/prompt-library/">
+  <img src="public/hero-banner.svg" alt="The MASTER Prompt Library, 427 prompts engineered on the 9-layer MASTER framework: Mission, Agent, Situation, Task, Examples, Rules, Think, Eval, Output." width="100%" />
+</a>
+
 # The MASTER Prompt Library
 
 ### 427 career-grade AI prompts on the 9-layer MASTER framework
 
-**[Live site](https://IgorCSIS.github.io/prompt-library/)** · **[Browse 372 templates](https://IgorCSIS.github.io/prompt-library/library/)** · **[The framework](https://IgorCSIS.github.io/prompt-library/framework/)** · **[Completed exercises](https://IgorCSIS.github.io/prompt-library/exercises/)**
+**[Live site](https://IgorCSIS.github.io/prompt-library/)** · **[Browse 372 templates](https://IgorCSIS.github.io/prompt-library/library/)** · **[The framework](https://IgorCSIS.github.io/prompt-library/framework/)** · **[Completed exercises](https://IgorCSIS.github.io/prompt-library/exercises/)** · **[Scraped feed](https://IgorCSIS.github.io/prompt-library/scraped/)**
 
 ![Next.js](https://img.shields.io/badge/Next.js-15-000?logo=next.js&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-strict-3178C6?logo=typescript&logoColor=white)
@@ -103,9 +107,4 @@ npm run build
 │   └── CopyButton.tsx
 ├── lib/
 │   ├── types.ts                  # TypeScript types for prompts
-│   ├── data.ts                   # JSON loaders + STATS helpers
-│   └── utils.ts                  # cn() and slugify()
-├── data/                         # Prompt JSON, the source of truth
-│   ├── templates.json            # 372 daily-use templates
-│   ├── exercises.json            # 55 completed exercises
-│   ├── categories.json    
+│   ├── data.ts         

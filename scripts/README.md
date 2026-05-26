@@ -7,10 +7,9 @@ Two files, one workflow:
 
 ## How to use it manually
 
-From PowerShell:
+From PowerShell, in the `portfolio-site` directory:
 
 ```powershell
-cd C:\Users\Igor\OneDrive\Desktop\CSIS275\portfolio-site
 .\scripts\sync-and-push.ps1
 ```
 

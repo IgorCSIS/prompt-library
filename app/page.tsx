@@ -25,12 +25,25 @@ const MASTER_LAYERS = [
 export default function HomePage() {
   return (
     <>
+      <section className="container-page pt-8 md:pt-10 pb-2">
+        <div className="rounded-xl overflow-hidden border border-border-subtle shadow-2xl shadow-accent/5 animate-fade-in">
+          <img
+            src="/hero-banner.svg"
+            alt="The MASTER Prompt Library. 427 prompts engineered on the 9-layer MASTER framework: Mission, Agent, Situation, Task, Examples, Rules, Think, Eval, Output."
+            width={1600}
+            height={460}
+            className="block w-full h-auto"
+            loading="eager"
+          />
+        </div>
+      </section>
+
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 -z-10">
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] rounded-full bg-accent/5 blur-[120px]" />
         </div>
 
-        <div className="container-page pt-20 pb-16 md:pt-32 md:pb-24">
+        <div className="container-page pt-10 pb-16 md:pt-14 md:pb-24">
           <div className="max-w-3xl">
             <p className="heading-eyebrow mb-6 animate-fade-in">
               The 9-Layer MASTER Framework, 427 Prompts

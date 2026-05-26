@@ -7,11 +7,11 @@
   to GitHub. Safe to re-run: idempotent via content-hashed stable IDs.
 
 .EXAMPLE
-  cd C:\Users\Igor\OneDrive\Desktop\CSIS275\portfolio-site
+  # From the portfolio-site directory:
   .\scripts\sync-and-push.ps1
 
 .EXAMPLE
-  # Dry run (parse + diff only, no commit/push)
+  # Dry run (parse + diff only, no commit/push):
   .\scripts\sync-and-push.ps1 -DryRun
 #>
 [CmdletBinding()]
