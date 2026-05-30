@@ -21,15 +21,22 @@ param(
 
 $ErrorActionPreference = "Stop"
 
-# Resolve script directory and project root regardless of where script is invoked
+# Resolve paths. The git repo IS the portfolio-site directory (it contains .git).
+# PROMPT_SCRAPE.md sits one level up, outside the repo, but the Python parser
+# reads it relatively so we don't need to cd up.
 $ScriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
 $SiteDir = Split-Path -Parent $ScriptDir
-$RepoDir = Split-Path -Parent $SiteDir
-Set-Location $RepoDir
+
+# Sanity check: the site dir must contain .git or we're confused about layout
+if (-not (Test-Path (Join-Path $SiteDir ".git"))) {
+    Write-Host "ERROR: $SiteDir is not a git repository. Expected .git directory there." -ForegroundColor Red
+    exit 1
+}
+
+Set-Location $SiteDir
 
 Write-Host "=== Weekly PROMPT_SCRAPE sync ===" -ForegroundColor Cyan
-Write-Host "Repo:  $RepoDir"
-Write-Host "Site:  $SiteDir"
+Write-Host "Repo: $SiteDir"
 Write-Host ""
 
 # 1. Verify Python is available
@@ -41,8 +48,8 @@ try {
     exit 1
 }
 
-# 2. Verify PROMPT_SCRAPE.md exists
-$ScrapeMd = Join-Path $RepoDir "PROMPT_SCRAPE.md"
+# 2. Verify PROMPT_SCRAPE.md exists (it's one level up from the repo)
+$ScrapeMd = Join-Path (Split-Path -Parent $SiteDir) "PROMPT_SCRAPE.md"
 if (-not (Test-Path $ScrapeMd)) {
     Write-Host "ERROR: $ScrapeMd not found." -ForegroundColor Red
     exit 1
@@ -57,10 +64,14 @@ if ($LASTEXITCODE -ne 0) {
     exit $LASTEXITCODE
 }
 
-# 4. Check git status for scraped.json
-Set-Location $RepoDir
-$ScrapedRel = "portfolio-site/data/scraped.json"
-$status = git status --porcelain -- $ScrapedRel
+# 4. Check git status for scraped.json (we are now inside the repo)
+$ScrapedRel = "data/scraped.json"
+$status = git status --porcelain -- $ScrapedRel 2>&1
+if ($LASTEXITCODE -ne 0) {
+    Write-Host "ERROR: git status failed:`n$status" -ForegroundColor Red
+    exit 1
+}
+
 if (-not $status) {
     Write-Host ""
     Write-Host "No changes to scraped.json. Feed is already up to date." -ForegroundColor Yellow
@@ -68,7 +79,7 @@ if (-not $status) {
 }
 
 Write-Host ""
-Write-Host "--- Diff preview (first 30 lines) ---" -ForegroundColor Cyan
+Write-Host "--- Diff preview ---" -ForegroundColor Cyan
 git --no-pager diff --stat -- $ScrapedRel
 Write-Host ""
 git --no-pager diff -- $ScrapedRel | Select-Object -First 30
@@ -84,6 +95,11 @@ Write-Host ""
 Write-Host "--- Committing & pushing ---" -ForegroundColor Cyan
 $timestamp = Get-Date -Format "yyyy-MM-dd"
 git add -- $ScrapedRel
+if ($LASTEXITCODE -ne 0) {
+    Write-Host "ERROR: git add failed." -ForegroundColor Red
+    exit $LASTEXITCODE
+}
+
 git commit -m "feed: weekly scraped-prompts sync ($timestamp)"
 if ($LASTEXITCODE -ne 0) {
     Write-Host "ERROR: commit failed." -ForegroundColor Red
