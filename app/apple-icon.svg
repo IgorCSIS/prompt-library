@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180" width="180" height="180">
+  <defs>
+    <linearGradient id="appleBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0a0c"/>
+      <stop offset="100%" stop-color="#16161a"/>
+    </linearGradient>
+    <linearGradient id="appleAccent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#e8ff47"/>
+      <stop offset="100%" stop-color="#c8df27"/>
+    </linearGradient>
+  </defs>
+  <rect width="180" height="180" rx="40" fill="url(#appleBg)"/>
+  <rect x="14" y="14" width="152" height="152" rx="32" fill="none" stroke="url(#appleAccent)" stroke-width="2" opacity="0.35"/>
+  <rect x="32" y="32" width="116" height="116" rx="20" fill="url(#appleAccent)"/>
+  <text x="90" y="120" font-family="JetBrains Mono, ui-monospace, monospace" font-size="86" font-weight="800" fill="#0a0a0c" text-anchor="middle" letter-spacing="-3">M</text>
+</svg>
