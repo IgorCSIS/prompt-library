@@ -39,17 +39,39 @@ Most prompt libraries are aggregations. This one is a working notebook. Every en
 
 ## Features
 
-- **Full client-side search** across all 372 templates (Fuse.js, sub-100ms results)
+- **Full client-side search** across all 372 templates (Fuse.js), with the whole corpus in the page and nothing to ask a server for
 - **Category and framework filters** for fast narrowing
 - **Copy-to-clipboard** on every prompt with success feedback
 - **Dark-mode-first design system** with WCAG-AA contrast
 - **Responsive** from 320px to 4K
 - **No analytics, no tracking, no cookies**
-- **Static export** under 500 KB, deploys anywhere
+- **Static export**, no server anywhere in the picture: about 5 MB on disk, most of it the prompt text itself, on 103 kB of shared JavaScript
 - **Open Graph and Twitter Card** meta with custom branded image
 - **JSON-LD structured data** for rich search results
 - **Sitemap and robots.txt** generated at build time
 - **Accessible keyboard navigation** throughout
+
+## How search works
+
+<p align="center">
+  <img src="public/diagrams/search-funnel.svg" alt="Fuse.js scores five fields with title weighted three, use_when two, category one and a half, and prompt and notes one each, at a threshold of 0.35 with ignoreLocation on. A query runs through that index over all 372 templates first, and the category and framework filters narrow the result afterwards." width="100%">
+</p>
+
+One Fuse index over five weighted keys, built once in
+`components/LibraryBrowser.tsx` and rebuilt only if the templates change. A
+match in the title counts three times a match in the prompt body, which is
+what stops a search for "email" from returning every template that happens to
+mention email somewhere in its instructions.
+
+The order is the part worth knowing. The fuzzy pass runs against the whole
+library, and the category and framework filters narrow whatever it returns.
+Picking a category is therefore a narrowing of the matches, not a search
+inside that category.
+
+Timing, measured over the shipped 372 templates: a one word query lands around
+25 to 50 ms and a four word one nearer 113 ms, because Fuse scores every word
+against all five fields. That is on one machine, so treat it as a shape rather
+than a promise.
 
 ## Tech stack
 
@@ -119,6 +141,7 @@ npm run build
 │   ├── sync-and-push.ps1        # Runs the parser, commits, pushes
 │   └── README.md                # How the sync ritual works
 └── public/                      # favicon, hero banner, OG card, robots.txt
+    └── diagrams/                # the drawings in this README
 ```
 
 ## License

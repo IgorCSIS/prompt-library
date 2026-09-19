@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 596" width="1200" height="596" role="img" aria-label="The search funnel: Fuse.js scores five fields with title weighted three, use_when two, category one and a half, and prompt and notes one each, then two exact filters narrow what is left.">
+  <title>The search funnel</title>
+  <desc>components/LibraryBrowser.tsx builds one Fuse index over all 372 templates with five weighted keys: title at 3, use_when at 2, category at 1.5, and prompt and notes at 1 each, with a threshold of 0.35 and ignoreLocation on. A query runs through that index first, and the category and framework filters are applied to the result afterwards.</desc>
+  <rect width="1200" height="596" rx="16" fill="#0A0A0C"/>
+  <rect x="0.5" y="0.5" width="1199" height="595" rx="15.5" fill="none" stroke="#2A2A32"/>
+  <text x="48" y="42" font-family="system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="17" font-weight="700" fill="#E8E8EE">A hit in a title is worth three in the body.</text>
+  <text x="48" y="66" font-family="system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="13" fill="#8B8B95">One Fuse index over five weighted fields, then two exact filters on whatever survives. All of it in the browser, with nothing to ask a server for.</text>
+  <text x="48" y="112" font-family="system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="600" fill="#E8E8EE">what a match is worth</text>
+  <text x="48" y="132" font-family="system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="11" fill="#8B8B95">the keys array, in its own order</text>
+  <text x="190" y="177" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12.5" fill="#E8E8EE">title</text>
+  <rect x="202" y="162" width="168" height="20" rx="4" fill="#E8FF47"/>
+  <text x="382" y="177" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#8B8B95">x3</text>
+  <text x="190" y="223" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12.5" fill="#E8E8EE">use_when</text>
+  <rect x="202" y="208" width="112" height="20" rx="4" fill="#E8FF47"/>
+  <text x="326" y="223" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#8B8B95">x2</text>
+  <text x="190" y="269" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12.5" fill="#E8E8EE">category</text>
+  <rect x="202" y="254" width="84" height="20" rx="4" fill="#E8FF47"/>
+  <text x="298" y="269" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#8B8B95">x1.5</text>
+  <text x="190" y="315" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12.5" fill="#E8E8EE">prompt</text>
+  <rect x="202" y="300" width="56" height="20" rx="4" fill="#4A4A56"/>
+  <text x="270" y="315" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#8B8B95">x1</text>
+  <text x="190" y="361" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12.5" fill="#E8E8EE">notes</text>
+  <rect x="202" y="346" width="56" height="20" rx="4" fill="#4A4A56"/>
+  <text x="270" y="361" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#8B8B95">x1</text>
+  <text x="48" y="412" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11.5" fill="#A8B833">threshold: 0.35</text>
+  <text x="48" y="432" font-family="system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="11" fill="#8B8B95">loose enough that a typo still lands.</text>
+  <text x="48" y="458" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11.5" fill="#A8B833">ignoreLocation: true</text>
+  <text x="48" y="478" font-family="system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="11" fill="#8B8B95">a word at the end of a field scores</text>
+  <text x="48" y="494" font-family="system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="11" fill="#8B8B95">like one at the start.</text>
+  <path d="M486 100 L486 496" stroke="#2A2A32" stroke-width="1"/>
+  <text x="836" y="112" text-anchor="middle" font-family="system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="600" fill="#E8E8EE">the order things happen in</text>
+  <rect x="556" y="140" width="560" height="62" rx="10" fill="#16161A" stroke="#E8FF47" stroke-opacity="0.5"/>
+  <text x="836" y="167" text-anchor="middle" font-family="system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#E8FF47">372 templates</text>
+  <text x="836" y="186" text-anchor="middle" font-family="system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="10.5" fill="#8B8B95">the whole corpus ships inside the page</text>
+  <path d="M836 202 L836 222" stroke="#5B5B65" stroke-width="2"/>
+  <path d="M830 214 L836 223 L842 214" fill="none" stroke="#5B5B65" stroke-width="2"/>
+  <rect x="616" y="230" width="440" height="62" rx="10" fill="#16161A" stroke="#E8FF47" stroke-opacity="0.5"/>
+  <text x="836" y="257" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13" font-weight="600" fill="#E8FF47">fuse.search(query)</text>
+  <text x="836" y="276" text-anchor="middle" font-family="system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="10.5" fill="#8B8B95">skipped entirely when the box is empty</text>
+  <path d="M836 292 L836 312" stroke="#5B5B65" stroke-width="2"/>
+  <path d="M830 304 L836 313 L842 304" fill="none" stroke="#5B5B65" stroke-width="2"/>
+  <rect x="671" y="320" width="330" height="62" rx="10" fill="#16161A" stroke="#8FA3BC" stroke-opacity="0.5"/>
+  <text x="836" y="347" text-anchor="middle" font-family="system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#8FA3BC">then the category filter</text>
+  <text x="836" y="366" text-anchor="middle" font-family="system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="10.5" fill="#8B8B95">exact, one of 18</text>
+  <path d="M836 382 L836 402" stroke="#5B5B65" stroke-width="2"/>
+  <path d="M830 394 L836 403 L842 394" fill="none" stroke="#5B5B65" stroke-width="2"/>
+  <rect x="721" y="410" width="230" height="62" rx="10" fill="#16161A" stroke="#8FA3BC" stroke-opacity="0.5"/>
+  <text x="836" y="437" text-anchor="middle" font-family="system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#8FA3BC">then the framework filter</text>
+  <text x="836" y="456" text-anchor="middle" font-family="system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="10.5" fill="#8B8B95">156 Full MASTER, 216 MASTER-lite</text>
+  <text x="48" y="546" font-family="system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="12.5" fill="#8B8B95">The fuzzy pass runs first and the exact filters narrow its result, so a category is a narrowing of the matches rather than a search within a category.</text>
+  <text x="48" y="568" font-family="system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="12.5" fill="#8B8B95">Timed over the shipped 372 templates on the machine this was drawn on: a one word query lands around 25 to 50 ms, a four word one nearer 113 ms.</text>
+  <path d="M48 518 L1152 518" stroke="#2A2A32" stroke-width="1"/>
+</svg>
