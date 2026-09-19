@@ -32,7 +32,7 @@ SKIP_SECTIONS = {"run log", "table of contents", "how this doc is maintained"}
 
 # The website has a no-em-dash style rule (em dashes signal AI-generated text).
 # Sanitize derived metadata fields: title, notes, source_name, attribution.
-# DO NOT touch the prompt body â prompts are quoted verbatim from sources.
+# DO NOT touch the prompt body: prompts are quoted verbatim from sources.
 def strip_dashes(text):
     """Replace em/en dashes with a comma. Collapse the surrounding spaces
     so ' , ' or ' ,  ' become ', '. Idempotent."""

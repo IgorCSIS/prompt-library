@@ -31,7 +31,7 @@ The library is organised in three parts:
 
 **Part II, [The Daily-Use Template Library](https://IgorCSIS.github.io/prompt-library/library/) (372).** Reusable templates organised by task type across 18 categories: email, code review, analysis, brainstorming, learning, code, data, research, creative, planning, self-improvement, system prompts, role-based, technique scaffolds, meetings, career, negotiation, verification. Searchable, filterable, copy-to-clipboard. Every Full MASTER prompt has all 9 layers.
 
-**Part III, [Scraped Prompts](https://IgorCSIS.github.io/prompt-library/scraped/).** A live, source-attributed feed of the best prompts from across the web, scored against the MASTER framework. Refreshed daily by a scheduled scraper. The goal: a single trusted destination for prompts that actually work, not the recycled top-10 lists.
+**Part III, [Scraped Prompts](https://IgorCSIS.github.io/prompt-library/scraped/).** A source-attributed feed of the best prompts from across the web, scored against the MASTER framework. Synced periodically by hand with `scripts/sync_scraped.py`, last refreshed June 2026. The goal: a single trusted destination for prompts that actually work, not the recycled top-10 lists.
 
 ## Why this exists
 
@@ -107,4 +107,25 @@ npm run build
 │   └── CopyButton.tsx
 ├── lib/
 │   ├── types.ts                  # TypeScript types for prompts
-│   ├── data.ts         
+│   ├── data.ts         # Loads and counts the JSON, exposes STATS
+│   └── utils.ts                 # Shared helpers
+├── data/
+│   ├── templates.json           # 372 reusable templates
+│   ├── exercises.json           # 55 completed CSIS 275 exercises
+│   ├── categories.json          # 18 categories
+│   └── scraped.json             # The scraped feed, synced by hand
+├── scripts/
+│   ├── sync_scraped.py          # Parses PROMPT_SCRAPE.md into scraped.json
+│   ├── sync-and-push.ps1        # Runs the parser, commits, pushes
+│   └── README.md                # How the sync ritual works
+└── public/                      # favicon, hero banner, OG card, robots.txt
+```
+
+## License
+
+Source code: MIT. See [LICENSE](LICENSE).
+
+The prompts themselves are under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Use them, modify them, share them, just credit the source.
+
+Built by **Igor Lima**. Automation and web work for East County and San Diego
+businesses. Portfolio: https://igorcsis.github.io/niftyai-portfolio/
