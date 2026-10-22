@@ -6,9 +6,9 @@ import { STATS } from '@/lib/data';
 const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? '';
 
 export const metadata: Metadata = {
-  title: 'The MASTER Prompt Library, 427 Career-Grade AI Prompts',
+  title: 'The MASTER Prompt Library, 442 Career-Grade AI Prompts',
   description:
-    '427 prompts built on the 9-layer MASTER framework for ChatGPT, Claude, and Gemini. Completed prompt engineering exercises, daily-use templates for code, writing, analysis, planning, negotiation, plus a live scraped feed of the best prompts from across the web.',
+    '442 prompts built on the 9-layer MASTER framework for ChatGPT, Claude, and Gemini. Completed prompt engineering exercises, daily-use templates for code, writing, analysis, planning, negotiation, plus a live scraped feed of the best prompts from across the web.',
   alternates: { canonical: '/' },
 };
 
@@ -31,7 +31,7 @@ export default function HomePage() {
         <div className="rounded-xl overflow-hidden border border-border-subtle shadow-2xl shadow-accent/5 animate-fade-in">
           <img
             src={`${BASE}/hero-banner.svg`}
-            alt="The MASTER Prompt Library. 427 prompts engineered on the 9-layer MASTER framework: Mission, Agent, Situation, Task, Examples, Rules, Think, Eval, Output."
+            alt="The MASTER Prompt Library. 442 prompts engineered on the 9-layer MASTER framework: Mission, Agent, Situation, Task, Examples, Rules, Think, Eval, Output."
             width={1600}
             height={460}
             className="block w-full h-auto"
@@ -48,7 +48,7 @@ export default function HomePage() {
         <div className="container-page pt-10 pb-16 md:pt-14 md:pb-24">
           <div className="max-w-3xl">
             <p className="heading-eyebrow mb-6 animate-fade-in">
-              The 9-Layer MASTER Framework, 427 Prompts
+              The 9-Layer MASTER Framework, 442 Prompts
             </p>
             <h1 className="heading-display mb-8 animate-slide-up">
               Prompts engineered to{' '}

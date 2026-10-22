@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 596" width="1200" height="596" role="img" aria-label="The search funnel: Fuse.js scores five fields with title weighted three, use_when two, category one and a half, and prompt and notes one each, then two exact filters narrow what is left.">
   <title>The search funnel</title>
-  <desc>components/LibraryBrowser.tsx builds one Fuse index over all 372 templates with five weighted keys: title at 3, use_when at 2, category at 1.5, and prompt and notes at 1 each, with a threshold of 0.35 and ignoreLocation on. A query runs through that index first, and the category and framework filters are applied to the result afterwards.</desc>
+  <desc>components/LibraryBrowser.tsx builds one Fuse index over all 387 templates with five weighted keys: title at 3, use_when at 2, category at 1.5, and prompt and notes at 1 each, with a threshold of 0.35 and ignoreLocation on. A query runs through that index first, and the category and framework filters are applied to the result afterwards.</desc>
   <rect width="1200" height="596" rx="16" fill="#0A0A0C"/>
   <rect x="0.5" y="0.5" width="1199" height="595" rx="15.5" fill="none" stroke="#2A2A32"/>
   <text x="48" y="42" font-family="system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="17" font-weight="700" fill="#E8E8EE">A hit in a title is worth three in the body.</text>
@@ -30,7 +30,7 @@
   <path d="M486 100 L486 496" stroke="#2A2A32" stroke-width="1"/>
   <text x="836" y="112" text-anchor="middle" font-family="system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="600" fill="#E8E8EE">the order things happen in</text>
   <rect x="556" y="140" width="560" height="62" rx="10" fill="#16161A" stroke="#E8FF47" stroke-opacity="0.5"/>
-  <text x="836" y="167" text-anchor="middle" font-family="system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#E8FF47">372 templates</text>
+  <text x="836" y="167" text-anchor="middle" font-family="system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#E8FF47">387 templates</text>
   <text x="836" y="186" text-anchor="middle" font-family="system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="10.5" fill="#8B8B95">the whole corpus ships inside the page</text>
   <path d="M836 202 L836 222" stroke="#5B5B65" stroke-width="2"/>
   <path d="M830 214 L836 223 L842 214" fill="none" stroke="#5B5B65" stroke-width="2"/>

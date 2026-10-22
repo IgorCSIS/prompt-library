@@ -7,7 +7,7 @@ const SITE_URL = 'https://IgorCSIS.github.io/prompt-library';
 const SITE_NAME = 'The MASTER Prompt Library';
 const TAGLINE = 'Prompts engineered to actually work';
 const DESC =
-  '427 career-grade prompts built on the 9-layer MASTER framework. Completed prompt engineering exercises, daily-use templates for code, writing, analysis, planning, and negotiation, plus a live scraped feed of the best prompts from across the web.';
+  '442 career-grade prompts built on the 9-layer MASTER framework. Completed prompt engineering exercises, daily-use templates for code, writing, analysis, planning, and negotiation, plus a live scraped feed of the best prompts from across the web.';
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -63,7 +63,7 @@ export const metadata: Metadata = {
         url: '/og-image.svg',
         width: 1200,
         height: 630,
-        alt: 'The MASTER Prompt Library, 427 career-grade prompts on the 9-layer MASTER framework',
+        alt: 'The MASTER Prompt Library, 442 career-grade prompts on the 9-layer MASTER framework',
         type: 'image/svg+xml',
       },
     ],

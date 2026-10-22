@@ -20,7 +20,7 @@ Then start the dev server:
 npm run dev
 ```
 
-Open **http://localhost:3000** in your browser. You should see the hero page with the stats strip ("427 prompts · 18 categories · ...") and nav to Framework / Library / Exercises / Scraped / About.
+Open **http://localhost:3000** in your browser. You should see the hero page with the stats strip ("442 prompts · 18 categories · ...") and nav to Framework / Library / Exercises / Scraped / About.
 
 Walk through every page once. If anything looks broken, the dev server reports the file and line. Send me the error and I'll fix it.
 
@@ -156,7 +156,7 @@ The deploy workflow handles the rest.
 - 30 files
 - ~3,500 lines of TypeScript / TSX
 - 6 pages
-- Full client-side search across 372 templates
+- Full client-side search across 387 templates
 - Copy-to-clipboard on every prompt
 - Dark-mode-first design (accessible, WCAG-compliant contrast)
 - Static export → deploys anywhere

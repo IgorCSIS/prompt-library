@@ -3,9 +3,9 @@ import { LibraryBrowser } from '@/components/LibraryBrowser';
 import { templates, categories } from '@/lib/data';
 
 export const metadata: Metadata = {
-  title: 'Prompt Template Library, 372 Reusable Prompts',
+  title: 'Prompt Template Library, 387 Reusable Prompts',
   description:
-    'Browse 372 reusable prompt templates across 18 categories: email, code review, analysis, planning, negotiation, verification, and more. Searchable, filterable, copy-to-clipboard. Built on the MASTER framework.',
+    'Browse 387 reusable prompt templates across 18 categories: email, code review, analysis, planning, negotiation, verification, and more. Searchable, filterable, copy-to-clipboard. Built on the MASTER framework.',
   keywords: [
     'prompt templates',
     'reusable prompts',
@@ -20,8 +20,8 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: '/library/' },
   openGraph: {
-    title: 'Prompt Template Library, 372 Reusable Prompts',
-    description: '372 saved templates across 18 task categories. Search, filter, copy, use.',
+    title: 'Prompt Template Library, 387 Reusable Prompts',
+    description: '387 saved templates across 18 task categories. Search, filter, copy, use.',
     url: '/library/',
     images: ['/og-image.svg'],
   },

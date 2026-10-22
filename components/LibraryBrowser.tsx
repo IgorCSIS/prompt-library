@@ -119,7 +119,7 @@ export function LibraryBrowser({ templates, categories }: LibraryBrowserProps) {
             type="text"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="Search 372 templates by title, trigger, or content..."
+            placeholder="Search 387 templates by title, trigger, or content..."
             className="input pl-11 pr-10"
           />
           {query && (

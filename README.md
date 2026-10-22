@@ -1,21 +1,21 @@
 <div align="center">
 
 <a href="https://IgorCSIS.github.io/prompt-library/">
-  <img src="public/hero-banner.svg" alt="The MASTER Prompt Library, 427 prompts engineered on the 9-layer MASTER framework: Mission, Agent, Situation, Task, Examples, Rules, Think, Eval, Output." width="100%" />
+  <img src="public/hero-banner.svg" alt="The MASTER Prompt Library, 442 prompts engineered on the 9-layer MASTER framework: Mission, Agent, Situation, Task, Examples, Rules, Think, Eval, Output." width="100%" />
 </a>
 
 # The MASTER Prompt Library
 
-### 427 career-grade AI prompts on the 9-layer MASTER framework
+### 442 career-grade AI prompts on the 9-layer MASTER framework
 
-**[Live site](https://IgorCSIS.github.io/prompt-library/)** · **[Browse 372 templates](https://IgorCSIS.github.io/prompt-library/library/)** · **[The framework](https://IgorCSIS.github.io/prompt-library/framework/)** · **[Completed exercises](https://IgorCSIS.github.io/prompt-library/exercises/)** · **[Scraped feed](https://IgorCSIS.github.io/prompt-library/scraped/)**
+**[Live site](https://IgorCSIS.github.io/prompt-library/)** · **[Browse 387 templates](https://IgorCSIS.github.io/prompt-library/library/)** · **[The framework](https://IgorCSIS.github.io/prompt-library/framework/)** · **[Completed exercises](https://IgorCSIS.github.io/prompt-library/exercises/)** · **[Scraped feed](https://IgorCSIS.github.io/prompt-library/scraped/)**
 
 ![Next.js](https://img.shields.io/badge/Next.js-15-000?logo=next.js&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-strict-3178C6?logo=typescript&logoColor=white)
 ![Tailwind](https://img.shields.io/badge/Tailwind-3.4-06B6D4?logo=tailwindcss&logoColor=white)
 ![Static](https://img.shields.io/badge/static-export-success)
 ![License](https://img.shields.io/badge/source-MIT-blue)
-![Prompts](https://img.shields.io/badge/prompts-427-e8ff47)
+![Prompts](https://img.shields.io/badge/prompts-442-e8ff47)
 
 </div>
 
@@ -23,13 +23,13 @@
 
 ## What this is
 
-A working library of **427 prompts** that I actually run. Not a top-10 listicle, not a marketing site, not a tutorial. Each prompt is built on the 9-layer **MASTER framework** (Mission, Agent, Situation, Task, Examples, Rules, Think, Eval, Output) and earns its place by being meaningfully different from every other prompt in the library.
+A working library of **442 prompts** that I actually run. Not a top-10 listicle, not a marketing site, not a tutorial. Each prompt is built on the 9-layer **MASTER framework** (Mission, Agent, Situation, Task, Examples, Rules, Think, Eval, Output) and earns its place by being meaningfully different from every other prompt in the library.
 
 The library is organised in three parts:
 
 **Part I, [Completed Prompt Engineering Exercises](https://IgorCSIS.github.io/prompt-library/exercises/) (55).** Every exercise from all 16 chapters of prompt engineering practice, done against real situations: a coffee-brewing comparison across three LLMs, the engineering-manager decision I'm actually weighing, a Sierra Nevada hiking trip, an apology I owed a teammate. Each entry shows what I picked, the prompt I ran, what came back, what I noticed, and the reusable template at the end.
 
-**Part II, [The Daily-Use Template Library](https://IgorCSIS.github.io/prompt-library/library/) (372).** Reusable templates organised by task type across 18 categories: email, code review, analysis, brainstorming, learning, code, data, research, creative, planning, self-improvement, system prompts, role-based, technique scaffolds, meetings, career, negotiation, verification. Searchable, filterable, copy-to-clipboard. Every Full MASTER prompt has all 9 layers.
+**Part II, [The Daily-Use Template Library](https://IgorCSIS.github.io/prompt-library/library/) (387).** Reusable templates organised by task type across 18 categories: email, code review, analysis, brainstorming, learning, code, data, research, creative, planning, self-improvement, system prompts, role-based, technique scaffolds, meetings, career, negotiation, verification. Searchable, filterable, copy-to-clipboard. Every Full MASTER prompt has all 9 layers.
 
 **Part III, [Scraped Prompts](https://IgorCSIS.github.io/prompt-library/scraped/).** A source-attributed feed of the best prompts from across the web, scored against the MASTER framework. Synced periodically by hand with `scripts/sync_scraped.py`, last refreshed June 2026. The goal: a single trusted destination for prompts that actually work, not the recycled top-10 lists.
 
@@ -39,7 +39,7 @@ Most prompt libraries are aggregations. This one is a working notebook. Every en
 
 ## Features
 
-- **Full client-side search** across all 372 templates (Fuse.js), with the whole corpus in the page and nothing to ask a server for
+- **Full client-side search** across all 387 templates (Fuse.js), with the whole corpus in the page and nothing to ask a server for
 - **Category and framework filters** for fast narrowing
 - **Copy-to-clipboard** on every prompt with success feedback
 - **Dark-mode-first design system** with WCAG-AA contrast
@@ -54,7 +54,7 @@ Most prompt libraries are aggregations. This one is a working notebook. Every en
 ## How search works
 
 <p align="center">
-  <img src="public/diagrams/search-funnel.svg" alt="Fuse.js scores five fields with title weighted three, use_when two, category one and a half, and prompt and notes one each, at a threshold of 0.35 with ignoreLocation on. A query runs through that index over all 372 templates first, and the category and framework filters narrow the result afterwards." width="100%">
+  <img src="public/diagrams/search-funnel.svg" alt="Fuse.js scores five fields with title weighted three, use_when two, category one and a half, and prompt and notes one each, at a threshold of 0.35 with ignoreLocation on. A query runs through that index over all 387 templates first, and the category and framework filters narrow the result afterwards." width="100%">
 </p>
 
 One Fuse index over five weighted keys, built once in
@@ -132,7 +132,7 @@ npm run build
 │   ├── data.ts         # Loads and counts the JSON, exposes STATS
 │   └── utils.ts                 # Shared helpers
 ├── data/
-│   ├── templates.json           # 372 reusable templates
+│   ├── templates.json           # 387 reusable templates
 │   ├── exercises.json           # 55 completed CSIS 275 exercises
 │   ├── categories.json          # 18 categories
 │   └── scraped.json             # The scraped feed, synced by hand
